@@ -1,10 +1,18 @@
+<div class="banner" style="background-image: url(<%= image_path "bar-image.jpg"%>)">
+</div>
 
-<h1>Cocktails</h1>
+
+  <div class="container">
+    <h1>Cocktails</h1>
+
+    <p><% @cocktails.each do |cocktail| %></p>
+    <div class="card" style="width: 18rem;">
+      <p><%= cocktail.name %></p>
+      <p><%= link_to 'Show', cocktail_path(cocktail), class: 'btn btn-secondary' %></p>
+    </div>
+    <% end %>
+
+    <p><%= link_to 'New Cocktail', new_cocktail_path, class: 'btn btn-primary' %></p>
+  </div>
 
 
-<p><% @cocktails.each do |cocktail| %></p>
-  <p><%= cocktail.name %></p>
-  <p><%= link_to 'Show', cocktail_path(cocktail)%></p>
-<% end %>
-
-<p><%= link_to 'New Cocktail', new_cocktail_path %></p>

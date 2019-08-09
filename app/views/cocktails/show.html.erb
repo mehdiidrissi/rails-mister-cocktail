@@ -1,10 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cocktail.name %>
-</p>
 
-<%= link_to 'Back', cocktails_path %>
+<h2>Name: <%= @cocktail.name %></h2>
 
-<%= link_to 'Doses', new_cocktail_dose_path(@cocktail)  %>
+<ul>
+<% @cocktail.doses.each do |dose| %>
+  <li><%= dose.description %> - <%= dose.ingredient.name %>
+  <%= link_to 'Destroy Dose', dose_path(dose), method: :delete, data: {confirm: "Are you sure you want to destroy dose?"}   %>
+  </li>
+
+<% end %>
+</ul>
+
+
+<p><%= link_to 'Back', cocktails_path %></p>
+
+<p><%= link_to 'Create a Dose', new_cocktail_dose_path(@cocktail)  %></p>
+
+<p><%= link_to 'Destroy Cocktail', cocktail_path(@cocktail), method: :delete, data: {confirm: "are you sure"} %></p>
