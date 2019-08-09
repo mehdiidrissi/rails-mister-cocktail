@@ -1,17 +1,17 @@
 <div class="banner" style="background-image: url(<%= image_path "bar-image.jpg"%>)">
+  <h1>Mehdi's Cocktails</h1>
 </div>
 
 
   <div class="container">
-    <h1>Cocktails</h1>
+
 
     <p><% @cocktails.each do |cocktail| %></p>
      <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= image_tag "cocktail.jpg", alt: "alttext" %>
       <div class="card-product-infos">
-      <h2>cocktail.name</h2>
       </div>
-      <p><%= cocktail.name %></p>
+      <h2 class="cocktail-name"><%= cocktail.name %></h2>
       <p><%= link_to 'Show', cocktail_path(cocktail), class: 'btn btn-secondary' %></p>
     </div>
     <% end %>
